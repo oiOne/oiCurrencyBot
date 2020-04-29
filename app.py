@@ -3,7 +3,7 @@ This script runs the application using a development server.
 It contains the definition of routes and views for the application.
 """
 from bot import RUN 
-
+from threading import Thread
 from flask import Flask
 app = Flask(__name__)
 
@@ -18,7 +18,8 @@ def hello():
 @app.route("/startoicurrency")
 def start():
     try:
-        RUN()
+        thread = Thread(target=RUN, args=())
+        thread.start()
         return "Server is running"
     except:
        return "Somethong went wrong. Please try again!"
@@ -27,7 +28,6 @@ def start():
 @app.route("/healthcheck")
 def healthCheck():
     return "Check check"
-
 
 if __name__ == '__main__':
     import os
