@@ -1,11 +1,13 @@
 import telebot
 from telebot import types
-import config
 import requests
 from datetime import datetime
 import json
 
-bot = telebot.TeleBot(config.TOKEN)
+import os
+
+tkn = os.environ.get("TOKEN", default="1218982080:AAGF01PcFTYBfsvNZhT3n0_Px87k98ke3P0")
+bot = telebot.TeleBot(tkn)
 
 def showCurrencyButtons(message):
     if message.text.lower() == 'hi' or message.text.lower() == '/hi':
