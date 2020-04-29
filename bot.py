@@ -61,5 +61,5 @@ def blabla(message):
     msg = getCurrencyNBRB(message.text)
     bot.send_message(message.chat.id, msg, parse_mode='Markdown')
 
-#RUN
-bot.polling(none_stop=True)
+def RUN():
+	bot.polling(none_stop=True)
