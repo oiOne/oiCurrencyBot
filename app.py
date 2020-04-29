@@ -18,7 +18,7 @@ def hello():
 @app.route("/startoicurrency")
 def start():
     try:
-        thread = Thread(target=RUN, args=())
+        thread = Thread(target=RUN, args=(), daemon=True)
         thread.start()
         return "Server is running"
     except:

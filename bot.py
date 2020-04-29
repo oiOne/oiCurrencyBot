@@ -64,4 +64,4 @@ def blabla(message):
     bot.send_message(message.chat.id, msg, parse_mode='Markdown')
 
 def RUN():
-	bot.polling(none_stop=True)
+	return bot.polling(none_stop=True)
