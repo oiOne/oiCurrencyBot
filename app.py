@@ -10,6 +10,13 @@ app = Flask(__name__)
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
 
+def run_bot():
+    while True:
+        try:
+            RUN()
+        except Exception:
+            time.sleep(15)
+	
 
 @app.route('/hello')
 def hello():
@@ -18,7 +25,7 @@ def hello():
 @app.route("/startoicurrency")
 def start():
     try:
-        thread = Thread(target=RUN, args=(), daemon=True)
+        thread = Thread(target=run_bot, args=(), daemon=True)
         thread.start()
         return "Server is running"
     except:
