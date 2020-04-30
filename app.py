@@ -2,7 +2,9 @@
 This script runs the application using a development server.
 It contains the definition of routes and views for the application.
 """
+import telebot
 from bot import RUN 
+from bot import STOP 
 from threading import Thread
 from flask import Flask
 app = Flask(__name__)
@@ -14,15 +16,14 @@ wsgi_app = app.wsgi_app
 def run_bot():
     while True:
         try:
+            print("Running again!")
             RUN()
-        except Exception:
-            time.sleep(15)
-	
-
-@app.route('/hello')
-def hello():
-    return "Hello!"
-
+        except telebot.apihelper.ApiException as e:
+          print(f"Error: {e}")
+          STOP()
+          time.sleep(5)
+          print("Running again!")
+          
 @app.route("/startoicurrency")
 def start():
     try:

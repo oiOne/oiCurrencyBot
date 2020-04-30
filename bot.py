@@ -6,7 +6,7 @@ import json
 
 import os
 
-tkn = os.environ.get("TOKEN", default="1218982080:AAGF01PcFTYBfsvNZhT3n0_Px87k98ke3P0")
+tkn = os.environ.get("TOKEN", default="1218982080:AAFfj5mWdAMb4H6EEy1qlZ_7ug7eagM7Irw")
 bot = telebot.TeleBot(tkn)
 
 # !!!! keyboards
@@ -111,3 +111,5 @@ def blabla(message):
 
 def RUN():
     bot.polling(none_stop=True)
+def STOP():
+    bot.stop_polling()
