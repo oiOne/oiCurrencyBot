@@ -34,9 +34,9 @@ def start():
        return "Somethong went wrong. Please try again!"
 
 
-@app.route("/healthcheck")
-def healthCheck():
-    return "Check check"
+@app.route("/")
+def index():
+    return "Oi oi oi!"
 
 if __name__ == '__main__':
     import os
